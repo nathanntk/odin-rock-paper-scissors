@@ -8,10 +8,24 @@
 </head>
 <body>
     <script>
-    
+
+        // returns rock, paper, or scissors randomly
         function computerPlay() {
-            
+            // randomNum = random number from 0 to 2
+            let randomNum = Math.floor(Math.random() * 3);
+            let rock = 'Rock';
+            let paper = 'Paper';
+            let scissors = 'Scissors';
+
+            if (randomNum == 0)
+                return rock;
+            else if (randomNum == 1)
+                return paper;
+            else if (randomNum == 2)
+                return scissors;
         }
+
+        console.log(computerPlay());
 
     </script>
 </body>
