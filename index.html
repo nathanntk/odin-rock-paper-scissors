@@ -7,12 +7,15 @@
     <title>Rock Paper Scissors (Console)</title>
 </head>
 <body>
+    <!-- JavaScript Code -->
     <script>
 
         // returns rock, paper, or scissors randomly
         function computerPlay() {
             // randomNum = random number from 0 to 2
             let randomNum = Math.floor(Math.random() * 3);
+
+            // variable declarations/initializations
             let rock = 'Rock';
             let paper = 'Paper';
             let scissors = 'Scissors';
@@ -25,7 +28,39 @@
                 return scissors;
         }
 
-        console.log(computerPlay());
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == computerSelection) {
+                return "It's a tie!";
+            }
+
+            if ( (playerSelection == "rock") && (computerSelection == "scissors") ) {
+                return "You win! Rock beats scissors";               
+            }
+
+            if ( (playerSelection == "rock") && (computerSelection == "paper") ) {
+                return "You lose. Paper beats rock :(";
+            }
+
+            if ( (playerSelection == "paper") && (computerSelection == "rock") ) {
+                return "You win! Paper beats rock"
+            }
+
+            if ( (playerSelection == "paper") && (computerSelection == "scissors") ) {
+                return "You lose. Scissors beats paper :("
+            }
+
+            if ( (playerSelection == "scissors") && (computerSelection == "paper") ) {
+                return "You win! Scissors beats paper";
+            }
+
+            if ( (playerSelection == "scissors") && (computerSelection == "rock") ) {
+                return "You lose. Rock beats scissors :(";
+            }
+
+        }
+
+        computerSelection = computerPlay();
+        computerSelection = computerSelection.toLowerCase();
 
     </script>
 </body>
