@@ -17,8 +17,6 @@
 
         let playerSelection;
         let computerSelection;
-        let playerScore = 0;
-        let computerScore = 0;
 
         // returns rock, paper, or scissors randomly
         function computerPlay() {
@@ -40,23 +38,24 @@
 
         // compares computer and player selections and determines winner
         function playRound(playerSelection, computerSelection) {
+            
             if (playerSelection == computerSelection) {
                 return "It's a tie!";
             }
             if ( (playerSelection == "rock") && (computerSelection == "scissors") ) {
-                return "You win! Rock beats scissors";             
+                return "You win! Rock beats scissors";    
             }
             if ( (playerSelection == "rock") && (computerSelection == "paper") ) {
                 return "You lose. Paper beats rock :(";
             }
             if ( (playerSelection == "paper") && (computerSelection == "rock") ) {
-                return "You win! Paper beats rock"
+                return "You win! Paper beats rock" 
             }
             if ( (playerSelection == "paper") && (computerSelection == "scissors") ) {
                 return "You lose. Scissors beats paper :("
             }
             if ( (playerSelection == "scissors") && (computerSelection == "paper") ) {
-                return "You win! Scissors beats paper";
+                return "You win! Scissors beats paper";  
             }
             if ( (playerSelection == "scissors") && (computerSelection == "rock") ) {
                 return "You lose. Rock beats scissors :(";
@@ -76,8 +75,12 @@
             computer_display.textContent = "Computer: " + computerSelection;
             container.appendChild(computer_display);
 
-            player_rock.textContent = playRound(playerSelection, computerSelection);
-            container.appendChild(player_rock);
+            const player_display = document.createElement('div');
+            player_display.textContent = "Player: " + playerSelection;
+            container.appendChild(player_display);
+
+            //player_rock.textContent = playRound(playerSelection, computerSelection);
+            //container.appendChild(player_rock);
         });
 
         const paper_btn = document.querySelector('#paper-btn');
@@ -92,8 +95,12 @@
             computer_display.textContent = "Computer: " + computerSelection;
             container.appendChild(computer_display);
 
-            player_paper.textContent = playRound(playerSelection, computerSelection);
-            container.appendChild(player_paper);
+            const player_display = document.createElement('div');
+            player_display.textContent = "Player: " + playerSelection;
+            container.appendChild(player_display);
+
+            //player_paper.textContent = playRound(playerSelection, computerSelection);
+            //container.appendChild(player_paper);
         });
 
         const scissors_btn = document.querySelector('#scissors-btn');
@@ -108,8 +115,12 @@
             computer_display.textContent = "Computer: " + computerSelection;
             container.appendChild(computer_display);
 
-            player_scissors.textContent = playRound(playerSelection, computerSelection);
-            container.appendChild(player_scissors);
+            const player_display = document.createElement('div');
+            player_display.textContent = "Player: " + playerSelection;
+            container.appendChild(player_display);
+
+            //player_scissors.textContent = playRound(playerSelection, computerSelection);
+            //container.appendChild(player_scissors);
         });
 
     </script>
