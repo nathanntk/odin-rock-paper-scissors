@@ -17,6 +17,8 @@
 
         let playerSelection;
         let computerSelection;
+        let playerScore = 0;
+        let computerScore = 0;
 
         // returns rock, paper, or scissors randomly
         function computerPlay() {
@@ -71,7 +73,7 @@
             const player_rock = document.createElement('div');
 
             const computer_display = document.createElement('div');
-            computer_display.textContent = "Computer Player: " + computerSelection;
+            computer_display.textContent = "Computer: " + computerSelection;
             container.appendChild(computer_display);
 
             player_rock.textContent = playRound(playerSelection, computerSelection);
@@ -81,11 +83,33 @@
         const paper_btn = document.querySelector('#paper-btn');
         paper_btn.addEventListener('click', () => {
             playerSelection = 'paper';
+            computerSelection = computerPlay().toLowerCase();
+
+            const container = document.querySelector('#container');
+            const player_paper = document.createElement('div');
+
+            const computer_display = document.createElement('div');
+            computer_display.textContent = "Computer: " + computerSelection;
+            container.appendChild(computer_display);
+
+            player_paper.textContent = playRound(playerSelection, computerSelection);
+            container.appendChild(player_paper);
         });
 
         const scissors_btn = document.querySelector('#scissors-btn');
         scissors_btn.addEventListener('click', () => {
             playerSelection = 'scissors';
+            computerSelection = computerPlay().toLowerCase();
+
+            const container = document.querySelector('#container');
+            const player_scissors = document.createElement('div');
+
+            const computer_display = document.createElement('div');
+            computer_display.textContent = "Computer: " + computerSelection;
+            container.appendChild(computer_display);
+
+            player_scissors.textContent = playRound(playerSelection, computerSelection);
+            container.appendChild(player_scissors);
         });
 
     </script>
