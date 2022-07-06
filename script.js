@@ -24,6 +24,10 @@ function computerPlay() {
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
+
+    setTimeout(function(){
+        location.reload();
+    }, 1000);
 };
 
 let buttons = document.querySelectorAll(".js-button");
@@ -47,6 +51,7 @@ buttons.forEach((button) => {
     
         // when player wins round --> tempPlayerScore = playerScore + 1;
         // when cpu wins round --> tempCpuScore = computerScore + 1;
+
         const container = document.getElementById('container');
         if (playerSelection == computerSelection) {
             const output = document.createElement('div');
@@ -131,10 +136,12 @@ buttons.forEach((button) => {
                 output.textContent = "you lose, better luck next time.";
                 container.appendChild(output);
             }
-    
+
             resetGame();
         }
-})
+
+    });
+
 
 
 });
