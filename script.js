@@ -26,57 +26,117 @@ function resetGame() {
     computerScore = 0;
 };
 
-const rockBtn = document.getElementById('rock-btn');
-rockBtn.addEventListener('click', () => {
-    // store player and cpu selections
-    playerSelection = 'rock';
-    computerSelection = computerPlay().toLowerCase();
+let buttons = document.querySelectorAll(".js-button");
+const body = document.querySelector("body");
 
-    // when player wins round --> tempPlayerScore = playerScore + 1;
-    // when cpu wins round --> tempCpuScore = computerScore + 1;
-    const container = document.getElementById('container');
-    if (playerSelection == computerSelection) {
-        const output = document.createElement('div');
-        output.textContent = "tie game!";
-        container.appendChild(output);
-    }
+buttons.forEach((button) => {
 
-    if (computerSelection == 'paper') {
-        computerScore = computerScore + 1;
-
-        const output = document.createElement('div');
-        output.textContent = "paper beats rock, you lose --> cpu score: " + computerScore;
-        container.appendChild(output);
-
-        let cpuScoreBox = document.createElement('div');
-        cpuScoreBox.textContent = computerScore;
-    }
-
-    if (computerSelection == 'scissors') {
-        playerScore = playerScore + 1;
-
-        const output = document.createElement('div');
-        output.textContent = "rock beats scissors, you win --> player score: " + playerScore;
-        container.appendChild(output);
-
-        let playerScoreBox = document.createElement('div');
-        playerScoreBox.textContent = computerScore;
-    }
-
-    if (playerScore == 5 || computerScore == 5) {
-        if (playerScore > computerScore) {
-            let output = document.createElement('div');
-            output.textContent = "you win, good job!";
+    button.addEventListener('click', () => {
+        // store player and cpu selections
+    
+        if (button.textContent == 'Rock') {
+            playerSelection = 'rock';
+        }
+        if (button.textContent == 'Paper') {
+            playerSelection = 'paper';
+        }
+        if (button.textContent == 'Scissors') {
+            playerSelection = 'scissors';
+        }
+        computerSelection = computerPlay().toLowerCase();
+    
+        // when player wins round --> tempPlayerScore = playerScore + 1;
+        // when cpu wins round --> tempCpuScore = computerScore + 1;
+        const container = document.getElementById('container');
+        if (playerSelection == computerSelection) {
+            const output = document.createElement('div');
+            output.textContent = "tie game!";
             container.appendChild(output);
         }
-        else {
-            let output = document.createElement('div');
-            output.textContent = "you lose, better luck next time.";
+    
+        if (playerSelection == 'rock' && computerSelection == 'paper') {
+            computerScore = computerScore + 1;
+    
+            const output = document.createElement('div');
+            output.textContent = "paper beats rock, you lose --> cpu score: " + computerScore;
             container.appendChild(output);
+    
+            let cpuScoreBox = document.createElement('div');
+            cpuScoreBox.textContent = computerScore;
         }
+    
+        if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            playerScore = playerScore + 1;
+    
+            const output = document.createElement('div');
+            output.textContent = "rock beats scissors, you win --> player score: " + playerScore;
+            container.appendChild(output);
+    
+            let playerScoreBox = document.createElement('div');
+            playerScoreBox.textContent = computerScore;
+        }
+    
+        if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            computerScore = computerScore + 1;
+    
+            const output = document.createElement('div');
+            output.textContent = "scissors beats paper, you lose --> cpu score: " + computerScore;
+            container.appendChild(output);
+    
+            let cpuScoreBox = document.createElement('div');
+            cpuScoreBox.textContent = computerScore;
+        }
+    
+        if (playerSelection == 'paper' && computerSelection == 'rock') {
+            playerScore = playerScore + 1;
+    
+            const output = document.createElement('div');
+            output.textContent = "paper beats rock, you win --> player score: " + playerScore;
+            container.appendChild(output);
+    
+            let playerScoreBox = document.createElement('div');
+            playerScoreBox.textContent = computerScore;
+        }
+    
+        if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            computerScore = computerScore + 1;
+    
+            const output = document.createElement('div');
+            output.textContent = "rock beats scissors, you lose --> cpu score: " + computerScore;
+            container.appendChild(output);
+    
+            let cpuScoreBox = document.createElement('div');
+            cpuScoreBox.textContent = computerScore;
+        }
+    
+        if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            playerScore = playerScore + 1;
+    
+            const output = document.createElement('div');
+            output.textContent = "scissors beats paper, you win --> player score: " + playerScore;
+            container.appendChild(output);
+    
+            let playerScoreBox = document.createElement('div');
+            playerScoreBox.textContent = computerScore;
+        }
+    
+        if (playerScore == 5 || computerScore == 5) {
+            if (playerScore > computerScore) {
+                let output = document.createElement('div');
+                output.textContent = "you win, good job!";
+                container.appendChild(output);
+            }
+            else {
+                let output = document.createElement('div');
+                output.textContent = "you lose, better luck next time.";
+                container.appendChild(output);
+            }
+    
+            resetGame();
+        }
+})
 
-        resetGame();
-    }
+
 });
 
 
