@@ -1,16 +1,20 @@
 
+// declare variables for player choice and computer choice -- set scores to zero intially
 let playerSelection;
 let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
+// reference all buttons and the body element with "container" id
 let buttons = document.querySelectorAll(".js-button");
-const body = document.querySelector("body");
+const container = document.getElementById('container');
 
+// for each button add script when clicked on
 buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
-        // store player and cpu selections
+
+        // store player selections depending on button pressed
         if (button.textContent == 'Rock') {
             playerSelection = 'rock';
         }
@@ -20,25 +24,28 @@ buttons.forEach((button) => {
         if (button.textContent == 'Scissors') {
             playerSelection = 'scissors';
         }
-
+        // store computer selection by calling the computerPlay() function -- set to lower case
         computerSelection = computerPlay().toLowerCase();
-    
-        // when player wins round --> tempPlayerScore = playerScore + 1;
-        // when cpu wins round --> tempCpuScore = computerScore + 1;
-        const container = document.getElementById('container');
+
+        // call playRound() -- compares user and cpu choices -- tallies scores
         playRound();
     
+        // the first one to reach a score of 5 wins
         if (playerScore == 5 || computerScore == 5) {
             if (playerScore > computerScore) {
+                // create div for winning message
                 let output = document.createElement('div');
                 output.textContent = "you win, good job!";
                 container.appendChild(output);
             }
             else {
+                // create div for losing message
                 let output = document.createElement('div');
                 output.textContent = "you lose, better luck next time.";
                 container.appendChild(output);
             }
+
+            // call reset function -- disables buttons, reloads page
             resetGame();
         }
     });
@@ -62,19 +69,20 @@ function computerPlay() {
         return scissors;
 };
 
+// disables buttons and reloads page
 function resetGame() {
+    // for each button set to disable
     buttons.forEach((button) => {
         button.disabled = true;
     });
 
-    playerScore = 0;
-    computerScore = 0;
-
+    // wait one second and reload page
     setTimeout(function(){
         location.reload();
     }, 1000);
 };
 
+// compares player and cpu selections and updates scores
 function playRound() {
     if (playerSelection == computerSelection) {
         
@@ -136,6 +144,6 @@ function playRound() {
         output.textContent = "scissors beats paper, you win --> player score: " + playerScore;
         container.appendChild(output);
     }
-}
+};
 
 
