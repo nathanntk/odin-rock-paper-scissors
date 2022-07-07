@@ -36,12 +36,14 @@ buttons.forEach((button) => {
                 // create div for winning message
                 let output = document.createElement('div');
                 output.textContent = "you win, good job!";
+                output.style.textAlign = "center";
                 container.appendChild(output);
             }
             else {
                 // create div for losing message
                 let output = document.createElement('div');
                 output.textContent = "you lose, better luck next time.";
+                output.style.textAlign = "center";
                 container.appendChild(output);
             }
 
@@ -88,6 +90,7 @@ function playRound() {
         
         const output = document.createElement('div');
         output.textContent = "tie game!";
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 
@@ -97,6 +100,7 @@ function playRound() {
 
         const output = document.createElement('div');
         output.textContent = "paper beats rock, you lose --> cpu score: " + computerScore;
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 
@@ -106,6 +110,7 @@ function playRound() {
 
         const output = document.createElement('div');
         output.textContent = "rock beats scissors, you win --> player score: " + playerScore;
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 
@@ -115,6 +120,7 @@ function playRound() {
 
         const output = document.createElement('div');
         output.textContent = "scissors beats paper, you lose --> cpu score: " + computerScore;
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 
@@ -124,6 +130,7 @@ function playRound() {
 
         const output = document.createElement('div');
         output.textContent = "paper beats rock, you win --> player score: " + playerScore;
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 
@@ -133,6 +140,7 @@ function playRound() {
 
         const output = document.createElement('div');
         output.textContent = "rock beats scissors, you lose --> cpu score: " + computerScore;
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 
@@ -142,6 +150,7 @@ function playRound() {
 
         const output = document.createElement('div');
         output.textContent = "scissors beats paper, you win --> player score: " + playerScore;
+        output.style.textAlign = "center";
         container.appendChild(output);
     }
 };
